@@ -1,0 +1,25 @@
+spring:
+  name: StudentService-dev
+  datasource:
+    platform: mysql
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/tinkus_backend
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      minimumIdle: 5
+      maximumPoolSize: 10
+      idleTimeout: 30000
+      poolName: StudentService-pool-dev
+      maxLifetime: 2000000
+      connectionTimeout: 30000
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+server:
+  servlet:
+    contextpath: /student-api-dev
+  port: 2061

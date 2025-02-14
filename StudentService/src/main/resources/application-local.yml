@@ -1,0 +1,30 @@
+spring:
+  name: StudentService-local
+  datasource:
+    platform: mysql
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/tinkus_backend
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      minimumIdle: 5
+      maximumPoolSize: 10
+      idleTimeout: 30000
+      PoolName: student-sys-pool-local
+      maxLefttime: 2000000
+      connectionTimeout: 30000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-d0dl: false
+    show_sql: false
+    properties:
+      hibernate:
+        show_sql: false
+        format_sql: false
+        dailect: org.hibernate.dailect.MySQL8Dilect
+server:
+  servlet:
+    contextpath: /student-api-local
+  port: 1061

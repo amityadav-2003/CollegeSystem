@@ -1,0 +1,7 @@
+spring:
+  name: StudentService-stg
+  
+server:
+  servlet:
+    context-path: /student-api-stg
+  port: 3061

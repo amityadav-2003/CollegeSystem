@@ -1,0 +1,7 @@
+spring:
+  name: StudentService-prod
+  
+server:
+  servlet:
+    context-path: /student-api
+  port: 4061
