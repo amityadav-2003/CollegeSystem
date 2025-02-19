@@ -3,13 +3,7 @@ package com.amstech.std.system.entity;
 import java.io.Serializable;
 import jakarta.persistence.*;
 import java.util.Date;
-import java.math.BigInteger;
 
-
-/**
- * The persistent class for the user database table.
- * 
- */
 @Entity
 @NamedQuery(name="User.findAll", query="SELECT u FROM User u")
 public class User implements Serializable {
@@ -23,7 +17,7 @@ public class User implements Serializable {
 	@Temporal(TemporalType.DATE)
 	@Column(name="date_of_birth")
 	private Date dateOfBirth;
-
+	 
 	private String email;
 
 	@Column(name="first_name")
@@ -31,18 +25,34 @@ public class User implements Serializable {
     @Id
 	private int id;
 
-	@Lob
+    @Lob
 	@Column(name="is_active")
-	private String isActive;
+	private Integer isActive; 
 
 	@Column(name="last_name")
 	private String lastName;
 
 	@Column(name="mobile_number")
 	private String mobileNumber;
+	
+	@Column(name="password")
+	private String password;
+	
+
 
 	public User() {
 	}
+
+	
+	public String getPassword() {
+		return password;
+	}
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 
 	public String getAddress() {
 		return this.address;
@@ -92,11 +102,11 @@ public class User implements Serializable {
 		this.id = id;
 	}
 
-	public String getIsActive() {
+	public int getIsActive() {
 		return this.isActive;
 	}
 
-	public void setIsActive(String isActive) {
+	public void setIsActive(int isActive) {
 		this.isActive = isActive;
 	}
 

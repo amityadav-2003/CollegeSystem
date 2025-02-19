@@ -27,4 +27,4 @@ spring:
 server:
   servlet:
     contextpath: /student-api-local
-  port: 1061
+  port: 1062
