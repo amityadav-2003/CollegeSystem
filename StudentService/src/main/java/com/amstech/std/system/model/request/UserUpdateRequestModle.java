@@ -17,6 +17,7 @@ public class UserUpdateRequestModle {
 public void setIsActive(int isActive) {
 	this.isActive = isActive;
 }
+
 	public String getPassword() {
 		return password;
 	}
