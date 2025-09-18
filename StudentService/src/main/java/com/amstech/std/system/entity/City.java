@@ -2,12 +2,8 @@ package com.amstech.std.system.entity;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
+import java.util.List;
 
-
-/**
- * The persistent class for the city database table.
- * 
- */
 @Entity
 @NamedQuery(name="City.findAll", query="SELECT c FROM City c")
 public class City implements Serializable {

@@ -14,4 +14,4 @@ public class StudentApplication {
 	}
 	
 }
- 
+ // http://localhost:1062/student-api-local/swagger-ui/index.html#/

@@ -8,6 +8,7 @@
 		<class>com.amstech.std.system.entity.Item</class>
 		<class>com.amstech.std.system.entity.ItemPK</class>
 	
+		<class>com.amstech.std.system.entity.OrderItem</class>
 		<class>com.amstech.std.system.entity.Payment</class>
 		<class>com.amstech.std.system.entity.Restaurant</class>
 		<class>com.amstech.std.system.entity.Role</class>

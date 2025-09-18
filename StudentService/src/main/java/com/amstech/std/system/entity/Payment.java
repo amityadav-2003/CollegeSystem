@@ -15,12 +15,11 @@ import java.util.Date;
 public class Payment implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
-
 	@Temporal(TemporalType.DATE)
 	private Date date;
+
+	@Id
+	private int id;
 
 	@Lob
 	@Column(name="mobile_number")
@@ -45,20 +44,20 @@ public class Payment implements Serializable {
 	public Payment() {
 	}
 
-	public int getId() {
-		return this.id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public Date getDate() {
 		return this.date;
 	}
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	public int getId() {
+		return this.id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getMobileNumber() {

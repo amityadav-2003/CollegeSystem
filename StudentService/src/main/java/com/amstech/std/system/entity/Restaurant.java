@@ -15,11 +15,7 @@ public class Restaurant implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-
-	@Column(name="city_id")
-	private int cityId;
 
 	private String email;
 
@@ -36,6 +32,10 @@ public class Restaurant implements Serializable {
 	@OneToMany(mappedBy="restaurant")
 	private List<Cuisine> cuisines;
 
+	//bi-directional many-to-one association to City
+	@ManyToOne
+	private City city;
+
 	//bi-directional many-to-one association to Role
 	@OneToMany(mappedBy="restaurant")
 	private List<Role> roles;
@@ -49,14 +49,6 @@ public class Restaurant implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getCityId() {
-		return this.cityId;
-	}
-
-	public void setCityId(int cityId) {
-		this.cityId = cityId;
 	}
 
 	public String getEmail() {
@@ -111,6 +103,14 @@ public class Restaurant implements Serializable {
 		cuisine.setRestaurant(null);
 
 		return cuisine;
+	}
+
+	public City getCity() {
+		return this.city;
+	}
+
+	public void setCity(City city) {
+		this.city = city;
 	}
 
 	public List<Role> getRoles() {

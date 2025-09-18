@@ -2,6 +2,7 @@ package com.amstech.std.system.entity;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
+import java.util.List;
 
 
 /**
@@ -13,12 +14,25 @@ import jakarta.persistence.*;
 public class Country implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="country_name")
-	private String countryName;
-    @Id
+	@Id
 	private int id;
 
+	@Column(name="country_name")
+	private String countryName;
+
+	//bi-directional many-to-one association to State
+	@OneToMany(mappedBy="country")
+	private List<State> states;
+
 	public Country() {
+	}
+
+	public int getId() {
+		return this.id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getCountryName() {
@@ -29,12 +43,26 @@ public class Country implements Serializable {
 		this.countryName = countryName;
 	}
 
-	public int getId() {
-		return this.id;
+	public List<State> getStates() {
+		return this.states;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setStates(List<State> states) {
+		this.states = states;
+	}
+
+	public State addState(State state) {
+		getStates().add(state);
+		state.setCountry(this);
+
+		return state;
+	}
+
+	public State removeState(State state) {
+		getStates().remove(state);
+		state.setCountry(null);
+
+		return state;
 	}
 
 }

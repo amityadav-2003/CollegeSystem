@@ -15,7 +15,6 @@ public class Bill implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 
 	@Column(name="cgst_amount")
@@ -42,7 +41,9 @@ public class Bill implements Serializable {
 	private double sgstRate;
 
 	//bi-directional many-to-one association to OrderItem
-	
+	@ManyToOne
+	@JoinColumn(name="order_item_id")
+	private OrderItem orderItem;
 
 	//bi-directional many-to-one association to Payment
 	@OneToMany(mappedBy="bill")
@@ -131,7 +132,13 @@ public class Bill implements Serializable {
 		this.sgstRate = sgstRate;
 	}
 
-	
+	public OrderItem getOrderItem() {
+		return this.orderItem;
+	}
+
+	public void setOrderItem(OrderItem orderItem) {
+		this.orderItem = orderItem;
+	}
 
 	public List<Payment> getPayments() {
 		return this.payments;

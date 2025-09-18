@@ -38,3 +38,6 @@ logging:
     org.springframework.web: INFO
     org.hibernate: INFO
     com.amstech.usermanagment: INFO
+app:
+  max-file-size: 52428800
+

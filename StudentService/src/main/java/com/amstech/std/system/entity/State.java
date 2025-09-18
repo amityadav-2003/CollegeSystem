@@ -14,14 +14,14 @@ public class State implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-
-	@Column(name="country_id")
-	private int countryId;
 
 	@Column(name="state_name")
 	private String stateName;
+
+	//bi-directional many-to-one association to Country
+	@ManyToOne
+	private Country country;
 
 	public State() {
 	}
@@ -34,20 +34,20 @@ public class State implements Serializable {
 		this.id = id;
 	}
 
-	public int getCountryId() {
-		return this.countryId;
-	}
-
-	public void setCountryId(int countryId) {
-		this.countryId = countryId;
-	}
-
 	public String getStateName() {
 		return this.stateName;
 	}
 
 	public void setStateName(String stateName) {
 		this.stateName = stateName;
+	}
+
+	public Country getCountry() {
+		return this.country;
+	}
+
+	public void setCountry(Country country) {
+		this.country = country;
 	}
 
 }
