@@ -10,7 +10,7 @@ public class StudentApplication {
 
 	{
 		SpringApplication.run(StudentApplication.class, args);
-		System.out.println("Main Method");
+		System.out.println("Main Method is");
 	}
 	
 }
